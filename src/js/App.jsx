@@ -16,6 +16,7 @@
 
 import React, { useState } from 'react';
 import { SearchBox } from './components/SearchBox/SearchBox';
+import WeatherInfo from './components/WeatherInfo/WeatherInfo';
 
 const api = {
   key: '429d2e287145e65ce74197b14fc241f4',
@@ -25,6 +26,7 @@ const api = {
 
 const App = () => {
   const [ query, setQuery ] = useState('');
+  const [ isWeatherReceived, setIsWeatherReceived ] = useState(false);
   const [ weather, setWeather ] = useState({});
   const [ error, setError ] = useState({});
   const [ isErrorReturned, setIsErrorReturned ] = useState(false);
@@ -38,11 +40,13 @@ const App = () => {
             setError(info);
             setWeather({});
             setIsErrorReturned(true);
+            setIsWeatherReceived(false);
             throw new Error(info);
           } else if (info.cod === 200) {
             setWeather(info);
             setError({});
             setIsErrorReturned(false);
+            setIsWeatherReceived(true);
           }
         })
         .catch(error => console.log(error))
@@ -59,6 +63,9 @@ const App = () => {
           setQuery={setQuery}
           getWeather={getWeather}
         />
+        {isWeatherReceived && (
+          <WeatherInfo weather={weather} />
+        )}
       </main>
     </div>
   );

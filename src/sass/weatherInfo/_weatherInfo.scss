@@ -1,0 +1,36 @@
+.info {
+  text-align: center;
+  color: $dark;
+  padding: 3rem 2rem;
+
+  background-color: rgba($color: lightgray, $alpha: 0.5);
+  border-radius: 0 0 20px 20px;
+
+  &__location {
+    font-size: 2.5rem;
+    font-weight: 900;
+    
+  }
+
+  &__temp {
+    font-size: 1.5rem;
+  }
+
+  &__date, &__temp, &__weather {
+    padding-top: 0.5rem;
+  }
+
+  .extra {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+
+    &--fst {
+      margin-top: 3rem;
+    }
+
+    &--last {
+      margin-bottom: 0;
+    }
+  }
+}
