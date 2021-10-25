@@ -43,7 +43,7 @@ const App = () => {
             setIsWeatherReceived(false);
             setError(info);
             setWeather({});
-            throw new Error(info);
+            throw new Error();
           } else if (info.cod === 200) {
             setWeather(info);
             setError({});
@@ -51,10 +51,7 @@ const App = () => {
             setIsWeatherReceived(true);
           }
         })
-        .catch(error => {
-          // setError(error);
-          console.log(error);
-        })
+        .catch(error => console.log(error))
     }
   }
 
@@ -73,7 +70,6 @@ const App = () => {
         )}
         {isErrorReturned && (
           <Error
-            query={query}
             error={error}
           />
         )}

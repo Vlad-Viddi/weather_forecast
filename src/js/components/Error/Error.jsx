@@ -1,10 +1,10 @@
 import React from 'react';
 
-export const Error = ({ error, query }) => {
+export const Error = ({ error }) => {
 
   return (
     <div className="info">
-      <div className="info__location">{query} - {error.message}</div>
+      <div className="info__location">{error.message}</div>
     </div>
   )
 }
