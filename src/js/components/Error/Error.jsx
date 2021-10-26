@@ -1,6 +1,7 @@
 import React from 'react';
 
-export const Error = ({ error }) => {
+const Error = ({ error }) => {
+  console.log('error from component ', error);
 
   return (
     <div className="info">
@@ -8,3 +9,5 @@ export const Error = ({ error }) => {
     </div>
   )
 }
+
+export default Error;
