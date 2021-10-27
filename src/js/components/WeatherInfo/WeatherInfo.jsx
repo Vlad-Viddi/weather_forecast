@@ -3,6 +3,7 @@ import React from 'react';
 import { getCurrentDate } from '../../helpers';
 
 const WeatherInfo = ({ weather }) => {
+
   const temperature = Math.floor(weather.main.temp);
   const weatherType = `${weather.weather[0].main} / ${weather.weather[0].description}`;
   const currentCity = weather.name;

@@ -20,12 +20,7 @@ import { SearchBox } from './components/SearchBox/SearchBox';
 import WeatherInfo from './components/WeatherInfo/WeatherInfo';
 import Error from './components/Error/Error';
 import { LoadingSpinner } from './components/LoadingSpinner/LoadingSpinner';
-
-const api = {
-  key: '429d2e287145e65ce74197b14fc241f4',
-  baseUrl: 'https://api.openweathermap.org/data/2.5/',
-};
-
+import { API } from './constants';
 
 const App = () => {
   const [ query, setQuery ] = useState('');
@@ -35,28 +30,28 @@ const App = () => {
   const [ isErrorReturned, setIsErrorReturned ] = useState(false);
   const [ isLoading, setIsLoading ] = useState(false);
 
+  const handleFetch = data => {
+    if(data.cod === "404") {
+      setIsLoading(false);
+      setIsErrorReturned(true);
+      setIsWeatherReceived(false);
+      setError(data);
+      setWeather({});
+    } else if (data.cod === 200) {
+      setIsLoading(false);
+      setWeather(data);
+      setError({});
+      setIsErrorReturned(false);
+      setIsWeatherReceived(true);
+    }
+  }
+
   const getWeather = e => {
     if(e.key === "Enter") {
       setIsLoading(true);
-      fetch(`${api.baseUrl}weather?q=${query}&units=metric&APPID=${api.key}`)
+      fetch(`${API.baseUrl}weather?q=${query}&units=metric&APPID=${API.key}`)
         .then(response => response.json())
-        .then(info => {
-          if(info.cod === "404") {
-            setIsLoading(false);
-            setIsErrorReturned(true);
-            setIsWeatherReceived(false);
-            setError(info);
-            setWeather({});
-            // throw new Error('Wrong input');
-          } else if (info.cod === 200) {
-            setIsLoading(false);
-            setWeather(info);
-            setError({});
-            setIsErrorReturned(false);
-            setIsWeatherReceived(true);
-          }
-        })
-        .catch(console.log);
+        .then(handleFetch)
     }
   }
 
@@ -71,7 +66,12 @@ const App = () => {
           getWeather={getWeather}
         />
         {isWeatherReceived && (
-          <WeatherInfo weather={weather} />
+          <WeatherInfo
+            weather={weather}
+            handleFetch={handleFetch}
+            query={query}
+
+          />
         )}
         {isErrorReturned && (
           <Error
