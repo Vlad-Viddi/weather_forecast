@@ -49,6 +49,8 @@ const App = () => {
   const getWeather = e => {
     if(e.key === "Enter") {
       setIsLoading(true);
+      setIsErrorReturned(false);
+      setIsWeatherReceived(false);
       fetch(`${API.baseUrl}weather?q=${query}&units=metric&APPID=${API.key}`)
         .then(response => response.json())
         .then(handleFetch)
