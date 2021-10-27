@@ -2,6 +2,8 @@
   text-align: center;
   color: $dark;
   padding: 3rem 2rem;
+  font-size: 1rem;
+  box-sizing: border-box;
 
   background-color: rgba($color: lightgray, $alpha: 0.5);
   border-radius: 0 0 20px 20px;
@@ -20,17 +22,18 @@
     padding-top: 0.5rem;
   }
 
-  .extra {
+  .extra-container {
     display: flex;
-    justify-content: space-between;
-    margin: 1rem 0;
+    flex-direction: column;
+    align-items: center;
 
-    &--fst {
-      margin-top: 3rem;
-    }
 
-    &--last {
-      margin-bottom: 0;
+    .extra {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+      width: 250px;
+      max-width: 250px;
     }
   }
 }

@@ -23,7 +23,7 @@ import { LoadingSpinner } from './components/LoadingSpinner/LoadingSpinner';
 import { API } from './constants';
 
 const App = () => {
-  const [ query, setQuery ] = useState('');
+  const [ query, setQuery ] = useState('lviv');
   const [ isWeatherReceived, setIsWeatherReceived ] = useState(false);
   const [ weather, setWeather ] = useState({});
   const [ error, setError ] = useState({});

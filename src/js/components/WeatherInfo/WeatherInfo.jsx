@@ -33,33 +33,35 @@ const WeatherInfo = ({ weather }) => {
         {weatherType}
       </div>
       <hr />
-      <div className="extra extra--fst">
-        <div className="extra__name">Feels like</div>
-        <div className="extra__value">{feelsLike}{tempUnit.celsius}</div>
-      </div>
-      <div className="extra">
-        <div className="extra__name">Min temperature</div>
-        <div className="extra__value">{tempMin}{tempUnit.celsius}</div>
-      </div>
-      <div className="extra">
-        <div className="extra__name">Max temperature</div>
-        <div className="extra__value">{tempMax}{tempUnit.celsius}</div>
-      </div>
-      <div className="extra">
-        <div className="extra__name">Sunrise</div>
-        <div className="extra__value">{sunrise}</div>
-      </div>
-      <div className="extra">
-        <div className="extra__name">Sunset</div>
-        <div className="extra__value">{sunset}</div>
-      </div>
-      <div className="extra">
-        <div className="extra__name">Humidity</div>
-        <div className="extra__value">{humidity}%</div>
-      </div>
-      <div className="extra extra--last">
-        <div className="extra__name">Pressure</div>
-        <div className="extra__value">{pressure}hPa</div>
+      <div className="extra-container">
+        <div className="extra extra--fst">
+          <div className="extra__name">Feels like</div>
+          <div className="extra__value">{feelsLike}{tempUnit.celsius}</div>
+        </div>
+        <div className="extra">
+          <div className="extra__name">Min temperature</div>
+          <div className="extra__value">{tempMin}{tempUnit.celsius}</div>
+        </div>
+        <div className="extra">
+          <div className="extra__name">Max temperature</div>
+          <div className="extra__value">{tempMax}{tempUnit.celsius}</div>
+        </div>
+        <div className="extra">
+          <div className="extra__name">Sunrise</div>
+          <div className="extra__value">{sunrise}</div>
+        </div>
+        <div className="extra">
+          <div className="extra__name">Sunset</div>
+          <div className="extra__value">{sunset}</div>
+        </div>
+        <div className="extra">
+          <div className="extra__name">Humidity</div>
+          <div className="extra__value">{humidity}%</div>
+        </div>
+        <div className="extra extra--last">
+          <div className="extra__name">Pressure</div>
+          <div className="extra__value">{pressure}hPa</div>
+        </div>
       </div>
     </div>
   )
