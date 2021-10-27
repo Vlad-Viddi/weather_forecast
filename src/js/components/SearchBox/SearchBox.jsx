@@ -1,6 +1,11 @@
 import React from 'react';
 
-export const SearchBox = ({ query, setQuery, getWeather }) => {
+export const SearchBox = ({ query, setQuery, fetchWeather }) => {
+  const getWeather = e => {
+    if(query.length > 1) {
+      fetchWeather(e)
+    }
+  };
 
   return (
     <div className="search-box">
@@ -10,7 +15,7 @@ export const SearchBox = ({ query, setQuery, getWeather }) => {
         className="search-bar"
         value={query}
         onChange={e => setQuery(e.target.value)}
-        onKeyDown={e => getWeather(e)}
+        onKeyDown={getWeather}
       />
     </div>
   )

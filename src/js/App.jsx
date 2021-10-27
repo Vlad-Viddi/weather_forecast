@@ -23,7 +23,7 @@ import { LoadingSpinner } from './components/LoadingSpinner/LoadingSpinner';
 import { API } from './constants';
 
 const App = () => {
-  const [ query, setQuery ] = useState('lviv');
+  const [ query, setQuery ] = useState('');
   const [ isWeatherReceived, setIsWeatherReceived ] = useState(false);
   const [ weather, setWeather ] = useState({});
   const [ error, setError ] = useState({});
@@ -46,7 +46,7 @@ const App = () => {
     }
   }
 
-  const getWeather = e => {
+  const fetchWeather = e => {
     if(e.key === "Enter") {
       setIsLoading(true);
       setIsErrorReturned(false);
@@ -65,7 +65,7 @@ const App = () => {
         <SearchBox
           query={query}
           setQuery={setQuery}
-          getWeather={getWeather}
+          fetchWeather={fetchWeather}
         />
         {isWeatherReceived && (
           <WeatherInfo
