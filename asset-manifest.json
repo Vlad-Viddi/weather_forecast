@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/weather_forecast/static/css/main.562ee2c4.chunk.css",
+    "main.js": "/weather_forecast/static/js/main.9b22990f.chunk.js",
+    "main.js.map": "/weather_forecast/static/js/main.9b22990f.chunk.js.map",
+    "runtime-main.js": "/weather_forecast/static/js/runtime-main.88d5912a.js",
+    "runtime-main.js.map": "/weather_forecast/static/js/runtime-main.88d5912a.js.map",
+    "static/js/2.cef5859a.chunk.js": "/weather_forecast/static/js/2.cef5859a.chunk.js",
+    "static/js/2.cef5859a.chunk.js.map": "/weather_forecast/static/js/2.cef5859a.chunk.js.map",
+    "index.html": "/weather_forecast/index.html",
+    "static/css/main.562ee2c4.chunk.css.map": "/weather_forecast/static/css/main.562ee2c4.chunk.css.map",
+    "static/js/2.cef5859a.chunk.js.LICENSE.txt": "/weather_forecast/static/js/2.cef5859a.chunk.js.LICENSE.txt",
+    "static/media/index.scss": "/weather_forecast/static/media/myriad-set-pro_text.baf08134.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.88d5912a.js",
+    "static/js/2.cef5859a.chunk.js",
+    "static/css/main.562ee2c4.chunk.css",
+    "static/js/main.9b22990f.chunk.js"
+  ]
+}
