@@ -62,6 +62,7 @@ const App = () => {
       className="app"
     >
       <main className="content">
+        <h1 className="appTitle">Weather Forecast App</h1>
         <SearchBox
           query={query}
           setQuery={setQuery}

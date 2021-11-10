@@ -18,5 +18,14 @@
   .content {
     min-width: $minContentWidth;
     max-width: 600px;
+
+    .appTitle {
+      font-family: 'MYRIAD';
+      font-style: italic;
+      font-weight: 100;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: $dark;
+    }
   }
 }

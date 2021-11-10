@@ -11,7 +11,7 @@ export const SearchBox = ({ query, setQuery, fetchWeather }) => {
     <div className="search-box">
       <input
         type="text"
-        placeholder="Enter your city"
+        placeholder="Enter any city"
         className="search-bar"
         value={query}
         onChange={e => setQuery(e.target.value)}
