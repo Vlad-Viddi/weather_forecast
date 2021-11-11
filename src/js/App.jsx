@@ -26,6 +26,7 @@ const App = () => {
   const [ query, setQuery ] = useState('');
   const [ isWeatherReceived, setIsWeatherReceived ] = useState(false);
   const [ weather, setWeather ] = useState({});
+  const [ weatherBg, setWeatherBg ] = useState('');
   const [ error, setError ] = useState({});
   const [ isErrorReturned, setIsErrorReturned ] = useState(false);
   const [ isLoading, setIsLoading ] = useState(false);
@@ -40,6 +41,7 @@ const App = () => {
     } else if (data.cod === 200) {
       setIsLoading(false);
       setWeather(data);
+      setWeatherBg(data.weather[0].icon);
       setError({});
       setIsErrorReturned(false);
       setIsWeatherReceived(true);
@@ -57,9 +59,12 @@ const App = () => {
     }
   }
 
+  console.log(weather.weather && weather.weather[0].icon);
+  console.log(weatherBg);
+
   return (
     <div
-      className="app"
+      className={`app app-${weatherBg}`}
     >
       <main className="content">
         <h1 className="appTitle">Weather Forecast App</h1>
@@ -71,9 +76,6 @@ const App = () => {
         {isWeatherReceived && (
           <WeatherInfo
             weather={weather}
-            handleFetch={handleFetch}
-            query={query}
-
           />
         )}
         {isErrorReturned && (
