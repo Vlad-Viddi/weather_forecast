@@ -6,7 +6,7 @@ Next steps will be:
 
 - add two weeks forecast
 - add fav cities
-+ add animation coresponding with current weather conditions on choosen city
+- add animation coresponding with current weather conditions on choosen city ✔️ 
 - add switcher for temp units (metric etc)
 
 All designed by myself 😊
