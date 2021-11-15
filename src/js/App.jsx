@@ -59,15 +59,15 @@ const App = () => {
     }
   }
 
-  console.log(weather.weather && weather.weather[0].icon);
-  console.log(weatherBg);
+
+  const dayNight = weatherBg.slice(-1) === 'n' ? 'night' : '';
 
   return (
     <div
       className={`app app-${weatherBg}`}
     >
       <main className="content">
-        <h1 className="appTitle">Weather Forecast App</h1>
+        <h1 className={`appTitle appTitle--${dayNight}`}>Weather Forecast App</h1>
         <SearchBox
           query={query}
           setQuery={setQuery}

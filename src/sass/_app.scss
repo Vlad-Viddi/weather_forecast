@@ -26,6 +26,10 @@
       margin-bottom: 1rem;
       text-align: center;
       color: $dark;
+
+      &--night {
+        color: $light;
+      }
     }
   }
 

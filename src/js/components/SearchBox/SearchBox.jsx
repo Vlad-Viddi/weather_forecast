@@ -10,6 +10,7 @@ export const SearchBox = ({ query, setQuery, fetchWeather }) => {
   return (
     <div className="search-box">
       <input
+        autoFocus
         type="text"
         placeholder="Enter any city"
         className="search-bar"
