@@ -1,0 +1,11 @@
+.tooltip {
+  padding: 2px;
+  position: absolute;
+  right: -15px;
+  top: -15px;
+  font-size: 1rem;
+  backdrop-filter: blur(2px);
+  color: $light;
+  background-color: $dark;
+  border-radius: 2px;
+}

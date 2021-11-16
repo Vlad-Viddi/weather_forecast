@@ -19,6 +19,36 @@
     min-width: $minContentWidth;
     max-width: 600px;
 
+    position: relative;
+
+    .fav {
+      position: absolute;
+      top: -50px;
+      cursor: pointer;
+      font-family: Impact;
+      letter-spacing: 2px;
+      user-select: none;
+
+      color: transparent;
+      -webkit-text-stroke: 1px $dark;
+      text-stroke: 1px $dark;
+      text-shadow: none;
+      transition: color 0.5s;
+
+      &:hover {
+        color: $light;
+      }
+    }
+
+    .fav--night {
+      -webkit-text-stroke: 1px $light;
+      text-stroke: 1px $light;
+
+      &:hover {
+        color: $dark;
+      }
+    }
+
     .appTitle {
       font-family: 'MYRIAD';
       font-weight: 100;

@@ -1,19 +1,3 @@
-/* 
- - 1 with query choose city like this:
-  Search for cities starting with Lond: JSON: http://api.weatherapi.com/v1/search.json?key=<YOUR_API_KEY>&q=lond
- - 2 when we got city second request for weather like this:
-   http://api.weatherapi.com/v1/current.json?key=<YOUR_API_KEY>&q=<QUERY>
-
-
-/*
-  Search for cities starting with Lond: JSON: http://api.weatherapi.com/v1/search.json?key=<YOUR_API_KEY>&q=lond
-
-  So to get current weather for London: JSON: http://api.weatherapi.com/v1/current.json?key=<YOUR_API_KEY>&q=London
-
-  To get 7 day weather for US Zipcode 07112: JSON: http://api.weatherapi.com/v1/forecast.json?key=<YOUR_API_KEY>&q=07112&days=7
-
-*/
-
 import React, { useState } from 'react';
 
 import { SearchBox } from './components/SearchBox/SearchBox';
@@ -21,6 +5,7 @@ import WeatherInfo from './components/WeatherInfo/WeatherInfo';
 import Error from './components/Error/Error';
 import { LoadingSpinner } from './components/LoadingSpinner/LoadingSpinner';
 import { API } from './constants';
+import { FavCities } from './components/FavCities/FavCities';
 
 const App = () => {
   const [ query, setQuery ] = useState('');
@@ -30,6 +15,8 @@ const App = () => {
   const [ error, setError ] = useState({});
   const [ isErrorReturned, setIsErrorReturned ] = useState(false);
   const [ isLoading, setIsLoading ] = useState(false);
+  const [ isFavOpen, setIsFavOpen ] = useState(false);
+  const [ favCities, setFavCities ] = useState(['New York', 'Tokyo', 'London']);
 
   const handleFetch = data => {
     if(data.cod === "404") {
@@ -59,14 +46,24 @@ const App = () => {
     }
   }
 
-
   const dayNight = weatherBg.slice(-1) === 'n' ? 'night' : '';
+
+  const toggleFavOpen = () => {
+    setIsFavOpen(!isFavOpen);
+    console.log('Yo');
+  }
 
   return (
     <div
       className={`app app-${weatherBg}`}
     >
       <main className="content">
+        <span
+          className={`fav fav--${dayNight}`}
+          onClick={toggleFavOpen}
+        >
+          FAV
+        </span>
         <h1 className={`appTitle appTitle--${dayNight}`}>Weather Forecast App</h1>
         <SearchBox
           query={query}
@@ -75,6 +72,8 @@ const App = () => {
         />
         {isWeatherReceived && (
           <WeatherInfo
+            favCities={favCities}
+            setFavCities={setFavCities}
             weather={weather}
           />
         )}
@@ -83,7 +82,8 @@ const App = () => {
             error={error}
           />
         )}
-        {isLoading && (<LoadingSpinner />)}
+        {isLoading && <LoadingSpinner />}
+        {isFavOpen && <FavCities favCities={favCities} />}
       </main>
     </div>
   );

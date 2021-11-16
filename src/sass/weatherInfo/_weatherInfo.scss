@@ -11,7 +11,16 @@
   &__location {
     font-size: 2.5rem;
     font-weight: 900;
-    
+    position: relative;
+
+    .addFavBtn {
+      position: absolute;
+      right: 5px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+    }
   }
 
   &__temp {
