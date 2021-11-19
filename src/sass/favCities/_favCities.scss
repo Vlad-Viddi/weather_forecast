@@ -1,0 +1,65 @@
+.favCitiesWrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 100px;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  backdrop-filter: blur(3px);
+  background: rgba($color: $dark, $alpha: 0.3);
+
+  .favCities {
+    background: rgba($color: $light, $alpha: 0.6);
+    padding: 0 0 20px 20px;
+    border-radius: 2px;
+
+    &:hover .favCities__header {
+      border-bottom: 2px solid $dark;
+    }
+
+    &__close {
+      height: 24px;
+      margin-left: 150px;
+      padding: 0;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+
+      &Img {
+        transform: rotate(45deg);
+      }
+    }
+
+    &__header {
+      font-size: 2rem;
+      font-family: "MYRIAD";
+      padding-bottom: 5px;
+      border-bottom: 2px solid transparent;
+      margin-bottom: 15px;
+      transition: border-bottom 0.25s;
+    }
+
+    &__item {
+      padding: 5px 1px;
+      cursor: pointer;
+      font-family: "MYRIAD";
+      font-weight: 100;
+      transition: font-weight 0.25s;
+
+      &:hover {
+        font-weight: 900;
+        background: rgba($color: $dark, $alpha: 0.3);
+      }
+
+    }
+  }
+
+
+
+
+}

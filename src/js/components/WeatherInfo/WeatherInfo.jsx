@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import Tooltip from '../Tooltip/Tooltip';
-import { getCurrentDate } from '../../helpers';
+import { getCurrentDate, alreadyHasCity } from '../../helpers';
 import doneSVG from '../../../imgs/svg/done_icon.svg';
 import plusSVG from '../../../imgs/svg/plus_icon.svg';
 
@@ -25,10 +25,8 @@ const WeatherInfo = ({ weather, setFavCities, favCities }) => {
     farhenheit: "°F"
   }
 
-  const alreadyHasCity = city => favCities.includes(city);
-
   const addFavCity = () => {
-    if (!alreadyHasCity(currentCity)) {
+    if (!alreadyHasCity(favCities, currentCity)) {
       setFavCities([...favCities, currentCity]);
     }
   }
@@ -45,12 +43,12 @@ const WeatherInfo = ({ weather, setFavCities, favCities }) => {
           onMouseLeave={() => setIsTipShown(false)}
         >
           {
-            alreadyHasCity(currentCity)
+            alreadyHasCity(favCities, currentCity)
             ? <img src={doneSVG} alt="done icon" />
             : <img src={plusSVG} alt="plus (add) icon" />
           }
         </button>
-        {isTipShown && <Tooltip>{alreadyHasCity(currentCity) ? 'Added' : 'Add to Fav'}</Tooltip>}
+        {isTipShown && <Tooltip>{alreadyHasCity(favCities, currentCity) ? 'Added' : 'Add to Fav'}</Tooltip>}
       </div>
       <div className="info__date">{getCurrentDate()} - {currentTime}</div>
 

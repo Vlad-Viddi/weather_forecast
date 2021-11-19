@@ -50,7 +50,6 @@ const App = () => {
 
   const toggleFavOpen = () => {
     setIsFavOpen(!isFavOpen);
-    console.log('Yo');
   }
 
   return (
@@ -83,7 +82,13 @@ const App = () => {
           />
         )}
         {isLoading && <LoadingSpinner />}
-        {isFavOpen && <FavCities favCities={favCities} />}
+        {isFavOpen && (
+          <FavCities
+            favCities={favCities}
+            toggleFavOpen={toggleFavOpen}
+            setFavCity={setQuery}
+          />
+        )}
       </main>
     </div>
   );

@@ -12,3 +12,5 @@ export const getCurrentDate = () => {
 
   return result;
 }
+
+export const alreadyHasCity = (favCities, city) => favCities.includes(city);
