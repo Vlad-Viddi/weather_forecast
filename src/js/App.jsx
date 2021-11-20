@@ -52,6 +52,14 @@ const App = () => {
     setIsFavOpen(!isFavOpen);
   }
 
+  const handleDeleteFavCity = (e) => {
+    const currentCity = e.target.getAttribute("data-value");
+    e.stopPropagation();
+    setIsFavOpen(true);
+    const updatedCities = favCities.filter(item => item !== currentCity);
+    setFavCities(updatedCities);
+  }
+
   return (
     <div
       className={`app app-${weatherBg}`}
@@ -61,7 +69,9 @@ const App = () => {
           className={`fav fav--${dayNight}`}
           onClick={toggleFavOpen}
         >
-          FAV
+          {favCities.length !== 0 && (
+            <span className="fav__num">{favCities.length}</span>
+          )}
         </span>
         <h1 className={`appTitle appTitle--${dayNight}`}>Weather Forecast App</h1>
         <SearchBox
@@ -85,8 +95,9 @@ const App = () => {
         {isFavOpen && (
           <FavCities
             favCities={favCities}
-            toggleFavOpen={toggleFavOpen}
+            setIsFavOpen={setIsFavOpen}
             setFavCity={setQuery}
+            handleDeleteFavCity={handleDeleteFavCity}
           />
         )}
       </main>

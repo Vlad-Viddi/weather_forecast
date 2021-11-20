@@ -32,6 +32,11 @@
 
       &Img {
         transform: rotate(45deg);
+
+        &:hover {
+          transform: rotate(405deg);
+          transition: transform 0.4s ease-in-out;
+        }
       }
     }
 
@@ -45,6 +50,8 @@
     }
 
     &__item {
+      display: flex;
+      justify-content: space-between;
       padding: 5px 1px;
       cursor: pointer;
       font-family: "MYRIAD";
@@ -56,10 +63,18 @@
         background: rgba($color: $dark, $alpha: 0.3);
       }
 
+      .trashbin {
+        visibility: hidden;
+        padding: 0 4px;
+
+        &__img {
+          width: 1rem;
+        }
+
+        &--visible {
+          visibility: visible;
+        }
+      }
     }
   }
-
-
-
-
 }

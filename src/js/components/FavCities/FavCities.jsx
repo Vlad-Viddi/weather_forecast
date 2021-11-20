@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import ReactDom from 'react-dom';
+import { FavCity } from '../FavCity/FavCity';
 import plus from '../../../imgs/svg/plus_icon.svg';
 
 const FavCitiesPortal = ({ children }) => {
@@ -10,10 +11,17 @@ const FavCitiesPortal = ({ children }) => {
   return ReactDom.createPortal(children, portal);
 }
 
-export const FavCities = ({ favCities, toggleFavOpen, setFavCity }) => {
+export const FavCities = ({ favCities, setIsFavOpen, setFavCity, handleDeleteFavCity }) => {
+
+  const handleFavClose = () => setIsFavOpen(false);
+
   const handleCityChoose = (event) => {
-    toggleFavOpen();
+    setIsFavOpen(false);
     setFavCity(event.target.innerText);
+  }
+
+  if(favCities.length === 0) {
+    setIsFavOpen(false);
   }
 
   return (
@@ -21,7 +29,7 @@ export const FavCities = ({ favCities, toggleFavOpen, setFavCity }) => {
       <div className="favCitiesWrapper">
         <div className="favCities">
           <button
-            onClick={toggleFavOpen}
+            onClick={handleFavClose}
             className="favCities__close"
           >
             <img
@@ -33,13 +41,11 @@ export const FavCities = ({ favCities, toggleFavOpen, setFavCity }) => {
           <h1 className="favCities__header">Fav Cities</h1>
           <ul className="favCities__list">
             {favCities.map(item => (
-              <li
-                key={item}
-                className="favCities__item"
-                onClick={handleCityChoose}
-              >
-                {item}
-              </li>
+              <FavCity
+                city={item}
+                handleCityChoose={handleCityChoose}
+                handleDeleteFavCity={handleDeleteFavCity}
+              />
             ))}
           </ul>
         </div>

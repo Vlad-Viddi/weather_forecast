@@ -22,6 +22,9 @@
     position: relative;
 
     .fav {
+      display: inline-block;
+      width: 2rem;
+      height: 2rem;
       position: absolute;
       top: -50px;
       cursor: pointer;
@@ -33,16 +36,29 @@
       -webkit-text-stroke: 1px $dark;
       text-stroke: 1px $dark;
       text-shadow: none;
-      transition: color 0.5s;
+      transition: color 0.5s background-image 0.5s;
+
+      background-image: url('../imgs/svg/fav_icon.svg');
+      background-repeat: no-repeat;
+      background-size: cover;
+
 
       &:hover {
         color: $light;
+        background-image: url('../imgs/svg/red_fav_icon.svg');
+      }
+
+      &__num {
+        position: relative;
+        top: 9px;
+        left: 12px;
       }
     }
 
     .fav--night {
       -webkit-text-stroke: 1px $light;
       text-stroke: 1px $light;
+      background-image: url('../imgs/svg/white_fav_icon.svg');
 
       &:hover {
         color: $dark;
